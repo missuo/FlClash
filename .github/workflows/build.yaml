@@ -53,9 +53,12 @@ jobs:
           - platform: macos
             os: macos-latest
             arch: arm64
-          - platform: windows
-            os: windows-11-arm
-            arch: arm64
+          # windows-11-arm (Windows on ARM) dropped: the `dart setup.dart`
+          # build step hangs on the ARM runner (very slow cargo build of the
+          # Rust helper / packaging). Re-add once the ARM build is sorted.
+          # - platform: windows
+          #   os: windows-11-arm
+          #   arch: arm64
           - platform: linux
             os: ubuntu-24.04-arm
             arch: arm64
