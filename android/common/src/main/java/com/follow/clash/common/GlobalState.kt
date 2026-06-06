@@ -3,8 +3,6 @@ package com.follow.clash.common
 
 import android.app.Application
 import android.util.Log
-import com.google.firebase.FirebaseApp
-import com.google.firebase.crashlytics.FirebaseCrashlytics
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 
@@ -36,11 +34,11 @@ object GlobalState : CoroutineScope by CoroutineScope(Dispatchers.Default) {
     }
 
     fun setCrashlytics(enable: Boolean) {
+        // Firebase Crashlytics removed in this fork; this is now a no-op.
+        // The in-app "crashlytics" toggle has no effect.
         _application?.let {
-            FirebaseApp.initializeApp(it)
-            FirebaseCrashlytics.getInstance().isCrashlyticsCollectionEnabled = enable
             if (enable) {
-                log("init crashlytics ${it.processName}")
+                log("crashlytics disabled in this build ${it.processName}")
             }
         }
     }

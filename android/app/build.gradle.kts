@@ -5,8 +5,9 @@ plugins {
     id("com.android.application")
     id("kotlin-android")
     id("dev.flutter.flutter-gradle-plugin")
-    id("com.google.gms.google-services")
-    id("com.google.firebase.crashlytics")
+    // Firebase removed in this fork (no google-services.json / secrets needed).
+    // id("com.google.gms.google-services")
+    // id("com.google.firebase.crashlytics")
 }
 
 val localPropertiesFile = rootProject.file("local.properties")
@@ -103,7 +104,8 @@ dependencies {
     implementation(libs.smali.dexlib2) {
         exclude(group = "com.google.guava", module = "guava")
     }
-    implementation(platform(libs.firebase.bom))
-    implementation(libs.firebase.crashlytics.ndk)
-    implementation(libs.firebase.analytics)
+    // Firebase removed in this fork.
+    // implementation(platform(libs.firebase.bom))
+    // implementation(libs.firebase.crashlytics.ndk)
+    // implementation(libs.firebase.analytics)
 }
